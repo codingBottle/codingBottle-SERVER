@@ -27,11 +27,10 @@ public class TeamService {
 
     // 파트별 팀 생성
     @Transactional
-    public void teamCreate(TeamSaveReqDto teamSaveReqDto) {
-        List<Member> memberList = memberRepository.findByPart(teamSaveReqDto.getPart());
+    public void teamCreate(Part part) {
+        List<Member> memberList = memberRepository.findByPart(part);
 
         Team team = Team.builder()
-                .teamName(teamSaveReqDto.getTeamName())
                 .memberList(memberList)
                 .build();
 

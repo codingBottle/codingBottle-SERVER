@@ -19,14 +19,11 @@ public class Team {
     @Column(name = "team_id")
     private Long teamId;
 
-    private String teamName;
-
     @OneToMany(mappedBy = "team", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Member> memberList = new ArrayList<>();
 
     @Builder
-    private Team(List<Member> memberList, String teamName) {
-        this.teamName = teamName;
+    private Team(List<Member> memberList) {
         addMemberList(memberList);
     }
 
