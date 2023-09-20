@@ -1,6 +1,5 @@
 package com.example.serversessionjparestful.application;
 
-import com.example.serversessionjparestful.api.dto.request.TeamSaveReqDto;
 import com.example.serversessionjparestful.api.dto.response.MemberResDto;
 import com.example.serversessionjparestful.domain.Member;
 import com.example.serversessionjparestful.domain.Part;
