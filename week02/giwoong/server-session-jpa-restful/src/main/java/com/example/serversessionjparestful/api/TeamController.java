@@ -1,8 +1,8 @@
 package com.example.serversessionjparestful.api;
 
+import com.example.serversessionjparestful.api.dto.request.TeamSaveReqDto;
 import com.example.serversessionjparestful.api.dto.response.MemberResDto;
 import com.example.serversessionjparestful.application.TeamService;
-import com.example.serversessionjparestful.domain.Part;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +19,8 @@ public class TeamController {
     }
 
     @PostMapping("/api/team/create")
-    public ResponseEntity<String> teamCreate(@RequestParam("part") Part part) {
-        teamService.teamCreate(part);
+    public ResponseEntity<String> teamCreate(@RequestBody TeamSaveReqDto teamSaveReqDto) {
+        teamService.teamCreate(teamSaveReqDto);
         return new ResponseEntity<>("SUCCESS", HttpStatus.OK);
     }
 

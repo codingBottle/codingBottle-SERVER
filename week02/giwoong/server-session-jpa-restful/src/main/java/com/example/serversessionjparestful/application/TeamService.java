@@ -1,8 +1,8 @@
 package com.example.serversessionjparestful.application;
 
+import com.example.serversessionjparestful.api.dto.request.TeamSaveReqDto;
 import com.example.serversessionjparestful.api.dto.response.MemberResDto;
 import com.example.serversessionjparestful.domain.Member;
-import com.example.serversessionjparestful.domain.Part;
 import com.example.serversessionjparestful.domain.Team;
 import com.example.serversessionjparestful.domain.repository.MemberRepository;
 import com.example.serversessionjparestful.domain.repository.TeamRepository;
@@ -26,10 +26,11 @@ public class TeamService {
 
     // 파트별 팀 생성
     @Transactional
-    public void teamCreate(Part part) {
-        List<Member> memberList = memberRepository.findByPart(part);
+    public void teamCreate(TeamSaveReqDto teamSaveReqDto) {
+        List<Member> memberList = memberRepository.findByPart(teamSaveReqDto.getPart());
 
         Team team = Team.builder()
+                .teamName(teamSaveReqDto.getTeamName())
                 .memberList(memberList)
                 .build();
 
