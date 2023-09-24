@@ -58,7 +58,7 @@ public class TeamService {
     public void teamVerification(String teamName, Member.Part part) {
         if(teamRepository.existsByTeamName(teamName))
             throw new RuntimeException("이미 존재하는 팀명입니다.");
-        else if (teamName.equals(part))
+        else if (teamName.equals(part.name()))
             throw new RuntimeException("파트와 팀 이름은 같을 수 없습니다.");
     }
 }

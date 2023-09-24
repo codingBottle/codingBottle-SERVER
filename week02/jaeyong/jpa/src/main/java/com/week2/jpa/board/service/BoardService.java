@@ -33,7 +33,7 @@ public class BoardService {
     }
 
     public BoardResponseDto findBoard(Long boardId) {
-        Board board = boardRepository.findById(boardId).orElseThrow();
+        Board board = boardRepository.findById(boardId).orElseThrow(() -> new RuntimeException("존재하지 않는 게시판입니다."));
 
         return boardMapper.boardToBoardResponseDto(board);
     }

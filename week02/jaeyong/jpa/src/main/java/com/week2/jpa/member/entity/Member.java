@@ -30,8 +30,7 @@ public class Member {
     private Team team;
 
     @Builder
-    public Member(Long memberId, String name, int age, Part part) {
-        this.memberId = memberId;
+    public Member(String name, int age, Part part) {
         this.name = name;
         this.age = age;
         this.part = part;
