@@ -23,8 +23,10 @@ public class BoardService {
 
     /**
      * 게시판 작성
-     * 저장하고 반환해주기
+     * 확인을 위해 저장하고 반환해주기
+     * @return id, 제목, 내용, 작성날짜
      */
+    @Transactional
     public BoardResDto boardSave(BoardSaveReqDto boardSaveReqDto) {
         Board board = Board.builder()
                 .title(boardSaveReqDto.getTitle())
@@ -61,16 +63,28 @@ public class BoardService {
 
     /**
      * 게시판 수정
+     * 확인을 위해 수정하고 반환하기
      */
-    public void boardUpdate() {
+    @Transactional
+    public BoardResDto boardUpdate(Long boardId, BoardSaveReqDto boardSaveReqDto) {
+        Board board = boardRepository.findById(boardId).orElseThrow();
 
+        board.update(boardSaveReqDto.getTitle(),
+                boardSaveReqDto.getContents());
+
+        return new BoardResDto(board.getBoardId(),
+                board.getTitle(),
+                board.getContents(),
+                board.getCreateDate());
     }
 
     /**
      * 게시판 삭제
      */
-    public void boardDelete() {
-
+    @Transactional
+    public void boardDelete(Long boardId) {
+        Board board = boardRepository.findById(boardId).orElseThrow();
+        boardRepository.delete(board);
     }
 }
 

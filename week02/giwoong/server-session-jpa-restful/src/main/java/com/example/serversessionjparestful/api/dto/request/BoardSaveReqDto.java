@@ -9,11 +9,9 @@ import lombok.NoArgsConstructor;
 public class BoardSaveReqDto {
     private String title;
     private String contents;
-    private String createDate;
 
-    public BoardSaveReqDto(String title, String contents, String createDate) {
+    public BoardSaveReqDto(String title, String contents) {
         this.title = title;
         this.contents = contents;
-        this.createDate = createDate;
     }
 }

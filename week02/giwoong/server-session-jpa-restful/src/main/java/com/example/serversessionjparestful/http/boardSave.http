@@ -1,0 +1,7 @@
+POST http://localhost:8081/api/board/save
+content-type:application/json
+
+{
+  "title": "테스트 제목5",
+  "contents": "내용5"
+}

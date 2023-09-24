@@ -7,13 +7,13 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class BoardResDto {
-    private Long noticeId;
+    private Long boardId;
     private String title;
     private String contents;
     private String createDate;
 
-    public BoardResDto(Long noticeId, String title, String contents, String createDate) {
-        this.noticeId = noticeId;
+    public BoardResDto(Long boardId, String title, String contents, String createDate) {
+        this.boardId = boardId;
         this.title = title;
         this.contents = contents;
         this.createDate = createDate;
