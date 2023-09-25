@@ -37,4 +37,22 @@ public class BoardService {
 
         return BoardResDto.of(board);
     }
+
+    @Transactional
+    public BoardResDto updateById(Long id, BoardReqDto boardReqDto) {
+        Board board = boardRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 게시글입니다."));
+
+        board.update(boardReqDto.getTitle(), boardReqDto.getContent());
+
+        return BoardResDto.of(board);
+    }
+
+    @Transactional
+    public void deleteById(Long id) {
+        Board board = boardRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 게시글입니다."));
+
+        boardRepository.delete(board);
+    }
 }

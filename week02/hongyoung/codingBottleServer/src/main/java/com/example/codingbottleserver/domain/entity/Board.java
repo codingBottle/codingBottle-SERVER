@@ -30,4 +30,9 @@ public class Board {
         this.content = content;
         this.member = member;
     }
+
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 }
