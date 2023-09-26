@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cbtest
+    username: root
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database: mysql
+
+    properties:
+      hibernate:
+        format_sql : true
+        show_sql: true
+        default_batch_fetch_size: 1000 # where in ()
+      open-in-view: false
