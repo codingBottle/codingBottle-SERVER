@@ -45,7 +45,6 @@ public class BoardService {
             // 업데이트된 내용으로 게시물 업데이트
             existingBoard.setTitle(updatedBoard.getTitle());
             existingBoard.setContent(updatedBoard.getContent());
-            // 다른 필드 업데이트도 수행 가능
 
             // 업데이트된 게시물 저장 및 반환
             return boardRepository.save(existingBoard);
