@@ -16,4 +16,6 @@ public interface TeamRepository extends JpaRepository<Team, Long> {
             "JOIN FETCH t.memberList")
     Set<Team> findAllJoinFetch();
 
+    boolean existsByTeamName(String teamName);
+
 }

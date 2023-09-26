@@ -34,4 +34,8 @@ public class Team {
         this.memberList.addAll(memberList);
     }
 
+    public void removeMember(List<Member> memberList) {
+        this.memberList.removeAll(memberList);
+    }
+
 }
