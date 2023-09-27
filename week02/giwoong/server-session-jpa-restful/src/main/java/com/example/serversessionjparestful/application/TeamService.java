@@ -26,7 +26,7 @@ public class TeamService {
 
     // 파트별 팀 생성
     @Transactional
-    public void teamCreate(Part part) {
+    public void teamCreate(Part part, String teamName) {
         List<Member> memberList = memberRepository.findByPart(part);
 
         Team team = Team.builder()

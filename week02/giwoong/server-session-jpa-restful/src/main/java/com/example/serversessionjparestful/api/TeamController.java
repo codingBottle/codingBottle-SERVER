@@ -19,8 +19,8 @@ public class TeamController {
     }
 
     @PostMapping("/api/team/create")
-    public ResponseEntity<String> teamCreate(@RequestParam("part") Part part) {
-        teamService.teamCreate(part);
+    public ResponseEntity<String> teamCreate(@RequestParam("part") Part part,@RequestParam("teamName") String teamName) {
+        teamService.teamCreate(part, teamName);
         return new ResponseEntity<>("SUCCESS", HttpStatus.OK);
     }
 
