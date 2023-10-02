@@ -1,0 +1,6 @@
+PATCH http://localhost:8080/student-in-lectures/3
+content-type:application/json
+
+{
+  "penalty": "ABSENT"
+}

@@ -1,0 +1,550 @@
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-03T000955.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-03T000942.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-03T000737.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-03T000726.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-03T000715.500.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T235939.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T235930.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-02T235914.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-02T234909.500.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-02T234721.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-02T233139.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-02T233137.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T233123.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T232759.500.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T232609.500.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T224345.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-02T224335.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-02T224223.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T224213.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T224015.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-02T224004.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-02T223906.500.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/3
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T222633.200.json
+
+###
+
+POST http://localhost:8080/student-in-lectures/lectures/3/students/1
+content-type: application/json
+
+{
+
+}
+
+<> 2023-10-02T222628.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/2
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T221749.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/2
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-02T220934.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/2
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T220818.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/2
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T220646.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/2
+content-type: application/json
+
+{
+  "penalty": "NONE"
+}
+
+<> 2023-10-02T220636.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/2
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T220318.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/2
+content-type: application/json
+
+{
+  "penalty": "NONE"
+}
+
+<> 2023-10-02T220308.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/2
+content-type: application/json
+
+{
+  "penalty": "NONE"
+}
+
+<> 2023-10-02T220306.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/2
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T220239.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/2
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T215827.500.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/2
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T215746.500.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/2
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T215324.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/1
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-02T215311.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/2
+content-type: application/json
+
+{
+  "penalty": "NONE"
+}
+
+<> 2023-10-02T215257.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/2
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-02T215246.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/2
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-02T184040.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/2
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T183857.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/1
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
+
+<> 2023-10-02T183844.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/1
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-02T183755.200.json
+
+###
+
+POST http://localhost:8080/student-in-lectures/lectures/2/students/1
+content-type: application/json
+
+{
+
+}
+
+<> 2023-10-02T183750.200.json
+
+###
+
+POST http://localhost:8080/student-in-lectures/lectures/1/students/1
+content-type: application/json
+
+{
+
+}
+
+<> 2023-10-02T183747.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/1
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-02T183310.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/1
+content-type: application/json
+
+{
+  "penalty": "ABSENT"
+}
+
+<> 2023-10-02T183308.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/1
+content-type: application/json
+
+{
+  "penalty": "NONE"
+}
+
+<> 2023-10-02T183253.200.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/1
+content-type: application/json
+
+{
+  "Penalty": "NONE"
+}
+
+<> 2023-10-02T183225.500.json
+
+###
+
+PATCH http://localhost:8080/student-in-lectures/2
+content-type: application/json
+
+{
+  "Penalty": "NONE"
+}
+
+<> 2023-10-02T183158.500.json
+
+###
+

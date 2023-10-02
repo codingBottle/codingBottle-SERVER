@@ -1,0 +1,6 @@
+POST http://localhost:8080/student-in-lectures/lectures/3/students/1
+content-type:application/json
+
+{
+
+}
