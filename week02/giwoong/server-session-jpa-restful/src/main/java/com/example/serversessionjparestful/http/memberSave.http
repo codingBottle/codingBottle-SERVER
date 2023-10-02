@@ -1,8 +1,0 @@
-POST http://localhost:8081/api/save
-content-type:application/json
-
-{
-  "name": "기웅최",
-  "age": 23,
-  "part": "SERVER"
-}

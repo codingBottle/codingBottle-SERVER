@@ -1,8 +1,0 @@
-POST http://localhost:8080/member
-content-type:application/json
-
-{
-  "nickname": "123",
-  "age": "14",
-  "admin": "false"
-}

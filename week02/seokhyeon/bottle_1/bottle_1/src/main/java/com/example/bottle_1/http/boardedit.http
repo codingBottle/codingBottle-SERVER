@@ -1,8 +1,0 @@
-PUT http://localhost:8080/board/1
-content-type:application/json
-
-{
-  "boardName": "edit",
-  "title": "수정된 게시물 제목",
-  "content": "수정된 게시물 내용"
-}
