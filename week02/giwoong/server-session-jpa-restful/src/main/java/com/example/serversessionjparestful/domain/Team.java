@@ -26,13 +26,17 @@ public class Team {
     private List<Member> memberList = new ArrayList<>();
 
     @Builder
-    private Team(List<Member> memberList, String teamName) {
+    private Team(String teamName, List<Member> memberList) {
         addMemberList(memberList);
         this.teamName = teamName;
     }
 
     private void addMemberList(List<Member> memberList) {
         this.memberList.addAll(memberList);
+    }
+
+    public void removeMember(List<Member> memberList) {
+        this.memberList.removeAll(memberList);
     }
 
 }
