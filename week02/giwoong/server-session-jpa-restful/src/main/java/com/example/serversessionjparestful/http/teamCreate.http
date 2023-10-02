@@ -1,0 +1,7 @@
+POST http://localhost:8081/api/team/create
+content-type:application/json
+
+{
+  "part" : "MOBILE",
+  "teamName" : "MOBILE"
+}
