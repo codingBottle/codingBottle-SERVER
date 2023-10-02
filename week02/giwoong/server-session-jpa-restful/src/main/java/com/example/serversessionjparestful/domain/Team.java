@@ -19,6 +19,7 @@ public class Team {
     @Column(name = "team_id")
     private Long teamId;
 
+    @Column(name = "team_name")
     private String teamName;
 
     @OneToMany(mappedBy = "team", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -26,8 +27,8 @@ public class Team {
 
     @Builder
     private Team(String teamName, List<Member> memberList) {
-        this.teamName = teamName;
         addMemberList(memberList);
+        this.teamName = teamName;
     }
 
     private void addMemberList(List<Member> memberList) {
