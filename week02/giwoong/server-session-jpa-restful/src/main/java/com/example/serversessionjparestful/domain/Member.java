@@ -39,4 +39,8 @@ public class Member {
     public void teamSetting(Team team) {
         this.team = team;
     }
+
+    public void teamNull() {
+        this.team = null;
+    }
 }
