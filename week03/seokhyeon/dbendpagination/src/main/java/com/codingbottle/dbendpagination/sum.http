@@ -1,0 +1,6 @@
+PATCH http://localhost:8080/student-in-lectures/1
+content-type: application/json
+
+{
+  "penalty": "LATE"
+}
