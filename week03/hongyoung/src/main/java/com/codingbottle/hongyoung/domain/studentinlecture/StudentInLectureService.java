@@ -52,6 +52,30 @@ public class StudentInLectureService {
         int totalPenalty = studentInLectureRepository.sumPenaltyByStudentId(student.getId());
         student.setTotalPenalty(totalPenalty);
 
+        /**
+         * 위의 구현한 방법과 아래의 구현 방법 중 어떤게 효율적일까요??!!(의견을 리뷰에 남겨주시면 감사해요...)
+         *
+         *     // 2. studentInLectureId 라는 경로 변수로 StudentInLecture 객체를 찾아온다.
+         *     StudentInLecture studentInLecture = getById(studentInLectureId);
+         *
+         *     // 3. studentInLecture 객체의 기존 벌점과 새로운 벌점을 비교한다.
+         *     Penalty oldPenalty = studentInLecture.getPenalty();
+         *
+         *     // 4. student 객체의 totalPenalty 도 변경된다.
+         *     Student student = studentInLecture.getStudent();
+         *
+         *     int oldTotalPenalty = student.getTotalPenalty();
+         *
+         *     // 기존 total penalty에서 기존 penalty를 빼고 새 penalty를 더한다.
+         *     int newTotalPenalty = oldTotalPenalty - oldPenalty.getValue() + newPenalty.getValue();
+         *
+         *     // 5. Update penalties
+         *     student.setTotalPenalty(newTotalPenalty);
+         *     studentInLecture.setPenalty(newpenaly);
+         *
+         *     이렇게 구현하면 학생이 수강한 모든 강의에 대해 매번 조회하여 벌점을 다시 계산하는 것보다 효율적일 수도 있을 것 같아요!!
+         */
+
         return studentInLecture.getId();
         // 1차 저장소의 정보가 DB로 flush 되고, 트랜잭션이 commit 된다.
     }
