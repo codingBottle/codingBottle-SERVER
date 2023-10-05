@@ -44,8 +44,21 @@ public class StudentInLectureService {
         // 2. studentInLectureId 라는 경로 변수로 StudentInLecture 객체를 찾아온다.
         StudentInLecture studentInLecture = getById(studentInLectureId);
 
-        // 3. studentInLecture 객체의 벌점을 변경한다.
+        // 3. 이전 벌점 정보를 가져온다.
+        Penalty previousPenalty = Penalty.NONE; // 기본값으로 설정
+        if (studentInLecture.getPenalty() != null) {
+            // studentInLecture.getPenalty()의 값이 null이 아닐 때만 변환을 시도하도록 변경
+            previousPenalty = Penalty.values()[studentInLecture.getPenalty()];
+        }
+
+        // 4. studentInLecture 객체의 벌점을 변경한다.
         studentInLecture.setPenalty(penalty);
+
+        // 5. 학생의 총 벌점을 업데이트한다.
+        int updatedTotalPenalty = studentInLecture.getStudent().getTotalPenalty();
+        updatedTotalPenalty -= previousPenalty.getValue(); // 이전 벌점 감산
+        updatedTotalPenalty += penalty.getValue(); // 새로운 벌점 누적
+        studentInLecture.getStudent().setTotalPenalty(updatedTotalPenalty);
 
         return studentInLecture.getId();
         // 1차 저장소의 정보가 DB로 flush 되고, 트랜잭션이 commit 된다.

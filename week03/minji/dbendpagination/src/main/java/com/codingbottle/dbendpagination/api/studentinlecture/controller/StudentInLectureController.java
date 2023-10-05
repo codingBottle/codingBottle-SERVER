@@ -3,6 +3,7 @@ package com.codingbottle.dbendpagination.api.studentinlecture.controller;
 import com.codingbottle.dbendpagination.api.common.RspTemplate;
 import com.codingbottle.dbendpagination.api.studentinlecture.dto.PenaltyReqDto;
 import com.codingbottle.dbendpagination.domain.studentinlecture.Penalty;
+import com.codingbottle.dbendpagination.domain.studentinlecture.StudentInLecture;
 import com.codingbottle.dbendpagination.domain.studentinlecture.StudentInLectureService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -23,13 +24,14 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class StudentInLectureController {
     private final StudentInLectureService studentInLectureService;
+
     /**
-     *1. 수강신청 API 만들기
-     *   url - 계층구조.
-     *   url - [POST] /student-in-lectures/lectures/1/students/1
-     *
-     *   그럼 StudentInLecture 객체 생성해서 저장 가능
-     *   penaltyState는 NONE
+     * 1. 수강신청 API 만들기
+     * url - 계층구조.
+     * url - [POST] /student-in-lectures/lectures/1/students/1
+     * <p>
+     * 그럼 StudentInLecture 객체 생성해서 저장 가능
+     * penaltyState는 NONE
      */
     // 수강신청
     // studentId는 사실 일반적인 경우 넣을 필요가 없는데
@@ -55,26 +57,65 @@ public class StudentInLectureController {
 
     /**
      * 2. 벌점부여 API 만들기
-     *   원데이 클래스라고 가정함
-     *   n주차 이런 거 없음
-     *   n주차를 구현하려면 테이블을 하나 더 만들었을 것 같음
-     *
-     *   url : /student-in-lecture/1 // 여기서 이미 어떤 강의 어떤 학생인지가 정해져있음.
+     * 원데이 클래스라고 가정함
+     * n주차 이런 거 없음
+     * n주차를 구현하려면 테이블을 하나 더 만들었을 것 같음
+     * <p>
+     * url : /student-in-lecture/1 // 여기서 이미 어떤 강의 어떤 학생인지가 정해져있음.
      * PATCH PUT
-     *   body: 벌점(지각, 결석 ENUM)
+     * body: 벌점(지각, 결석 ENUM)
      */
+
+    //수정 전 벌점 api
+//    @PatchMapping("/student-in-lectures/{studentInLectureId}")
+//    public RspTemplate<Void> handleUpdateStudentInLecture(
+//            @PathVariable Long studentInLectureId
+//            , @RequestBody PenaltyReqDto reqDto
+//    ) {
+//        // 1. '벌점'을 의미하는 요청값( json 형식) 을 받아서 StudentInLecture 객체를 update한다.
+//        Penalty penalty = reqDto.getPenalty();
+//        long updatedStuInLecId = studentInLectureService.updatePenalty(studentInLectureId, penalty);
+//
+//        return new RspTemplate<>(HttpStatus.OK
+//                , updatedStuInLecId + "번 수강신청의 벌점이 수정되었습니다.");
+//    }
+
+    //수정 후 벌점 api
     @PatchMapping("/student-in-lectures/{studentInLectureId}")
     public RspTemplate<Void> handleUpdateStudentInLecture(
-            @PathVariable Long studentInLectureId
-            , @RequestBody PenaltyReqDto reqDto
-            ){
-        // 1. '벌점'을 의미하는 요청값( json 형식) 을 받아서 StudentInLecture 객체를 update한다.
+            @PathVariable Long studentInLectureId,
+            @RequestBody PenaltyReqDto reqDto
+    ) {
+        // 1. '벌점'을 의미하는 요청값(json 형식)을 받아서 StudentInLecture 객체를 update한다.
         Penalty penalty = reqDto.getPenalty();
-        long updatedStuInLecId = studentInLectureService.updatePenalty(studentInLectureId, penalty);
 
-        return new RspTemplate<>(HttpStatus.OK
-            , updatedStuInLecId + "번 수강신청의 벌점이 수정되었습니다.");
+        // 2. StudentInLecture 객체를 찾아온다.
+        StudentInLecture studentInLecture = studentInLectureService.getById(studentInLectureId);
+
+        // 3. 학생의 총 벌점을 가져온다.
+        int totalPenalty = studentInLecture.getStudent().getTotalPenalty();
+
+        // 4. 이전 벌점 정보를 가져온다.
+        Penalty previousPenalty = Penalty.NONE;
+        if (studentInLecture.getPenalty() != null) {
+            previousPenalty = Penalty.values()[studentInLecture.getPenalty()];
+        }
+
+        // 5. 학생의 벌점을 업데이트한다.
+        totalPenalty -= previousPenalty.getValue(); // 이전 벌점 감산
+        totalPenalty += penalty.getValue(); // 새로운 벌점 누적
+        studentInLecture.getStudent().setTotalPenalty(totalPenalty);
+
+        // 6. StudentInLecture 객체의 벌점을 변경한다.
+        studentInLecture.setPenalty(penalty);
+
+        // 7. StudentInLecture를 저장하고 업데이트된 정보를 반환한다.
+        studentInLectureService.updatePenalty(studentInLectureId, penalty);
+
+        return new RspTemplate<>(HttpStatus.OK,
+                studentInLectureId + "번 수강신청의 벌점이 수정되었습니다. 현재 총 벌점: " + totalPenalty + "점");
     }
+
 
     /**
      *  **과제**

@@ -1,4 +1,4 @@
-package com.codingbottle.dbendpagination.domain.student;
+package com.codingbottle.dbendpagination.domain.lecture;
 
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class Student {
+public class Lecture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,13 +19,14 @@ public class Student {
     private String name;
 
     @Builder
-    private Student(String name) {
+    private Lecture(String name) {
         this.name = name;
     }
-
-
-
 }
+
+
+
+
 
 
 
