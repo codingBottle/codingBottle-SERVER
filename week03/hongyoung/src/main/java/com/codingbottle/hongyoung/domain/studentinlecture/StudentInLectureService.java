@@ -5,6 +5,7 @@ import com.codingbottle.hongyoung.domain.lecture.LectureService;
 import com.codingbottle.hongyoung.domain.student.Student;
 import com.codingbottle.hongyoung.domain.student.StudentService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Service
+@Slf4j
 public class StudentInLectureService {
     private final StudentInLectureRepository studentInLectureRepository;
     private final StudentService studentService;
@@ -41,40 +43,21 @@ public class StudentInLectureService {
 
     @Transactional
     public long updatePenalty(Long studentInLectureId, Penalty penalty) {
-        // 2. studentInLectureId 라는 경로 변수로 StudentInLecture 객체를 찾아온다.
         StudentInLecture studentInLecture = getById(studentInLectureId);
 
-        // 3. studentInLecture 객체의 벌점을 변경한다.
-        studentInLecture.setPenalty(penalty);
+        Integer oldPenalty = studentInLecture.getPenalty();
+        // penalty가 바뀌지 않았으면 바로 리턴
+        if (penalty.getValue() == oldPenalty) {
+            return studentInLecture.getId();
+        }
 
-        // 4. 학생의 totalPenalty 를 변경한다.
         Student student = studentInLecture.getStudent();
-        int totalPenalty = studentInLectureRepository.sumPenaltyByStudentId(student.getId());
-        student.setTotalPenalty(totalPenalty);
 
-        /**
-         * 위의 구현한 방법과 아래의 구현 방법 중 어떤게 효율적일까요??!!(의견을 리뷰에 남겨주시면 감사해요...)
-         *
-         *     // 2. studentInLectureId 라는 경로 변수로 StudentInLecture 객체를 찾아온다.
-         *     StudentInLecture studentInLecture = getById(studentInLectureId);
-         *
-         *     // 3. studentInLecture 객체의 기존 벌점과 새로운 벌점을 비교한다.
-         *     Penalty oldPenalty = studentInLecture.getPenalty();
-         *
-         *     // 4. student 객체의 totalPenalty 도 변경된다.
-         *     Student student = studentInLecture.getStudent();
-         *
-         *     int oldTotalPenalty = student.getTotalPenalty();
-         *
-         *     // 기존 total penalty에서 기존 penalty를 빼고 새 penalty를 더한다.
-         *     int newTotalPenalty = oldTotalPenalty - oldPenalty.getValue() + newPenalty.getValue();
-         *
-         *     // 5. Update penalties
-         *     student.setTotalPenalty(newTotalPenalty);
-         *     studentInLecture.setPenalty(newpenaly);
-         *
-         *     이렇게 구현하면 학생이 수강한 모든 강의에 대해 매번 조회하여 벌점을 다시 계산하는 것보다 효율적일 수도 있을 것 같아요!!
-         */
+        int oldTotalPenalty = student.getTotalPenalty();
+        int newTotalPenalty = oldTotalPenalty - oldPenalty + penalty.getValue();
+
+        student.setTotalPenalty(newTotalPenalty);
+        studentInLecture.setPenalty(penalty);
 
         return studentInLecture.getId();
         // 1차 저장소의 정보가 DB로 flush 되고, 트랜잭션이 commit 된다.
